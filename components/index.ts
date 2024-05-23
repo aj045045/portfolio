@@ -1,0 +1,11 @@
+export { NavbarComponent } from "./Navbar";
+export { Typing } from "./Typing";
+export { Pill } from "./Pill";
+export { Hero } from "./Hero";
+export { WhoAmI } from "./WhoAmI";
+export { Service } from "./Service";
+export { About } from "./About";
+export { ProjectLeft,ProjectRight } from "./Project";
+export { Education } from "./Education";
+export { Skill } from "./Skill";
+export { Contact } from "./Contact";
