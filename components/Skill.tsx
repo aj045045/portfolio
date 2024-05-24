@@ -7,11 +7,11 @@ export function Skill({ label, value }: { label: string; value: number; }) {
             size="md"
             radius="full"
             classNames={{
-                base: "max-w-md",
+                base: "max-w-sm",
                 track: "drop-shadow-md border border-default",
-                indicator: "bg-gradient-to-r from-teal-300 to-green-700",
+                indicator: "bg-gradient-to-r from-teal-700 to-green-300",
                 label: "tracking-wider font-medium text-default-600",
-                value: "text-foreground/60",
+                value: "text-foreground/60 select-none",
             }}
             label={label}
             value={value}

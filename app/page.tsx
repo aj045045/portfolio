@@ -1,3 +1,4 @@
+'use client'
 import { Pill, Hero, WhoAmI, Service, About, ProjectLeft, ProjectRight, Education, Skill, Contact } from "@/components";
 import { FaReddit, FaServer } from "react-icons/fa6";
 import { FaCode } from "react-icons/fa";
@@ -12,8 +13,9 @@ import { SiFreelancer } from "react-icons/si";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaSquareUpwork } from "react-icons/fa6";
-
+import { motion } from "framer-motion";
 function MainLayout() {
+
   interface ProjectInterface {
     type: string;
     data: string;
@@ -33,27 +35,27 @@ function MainLayout() {
 
   const ProjectData: ProjectInterface[] = [
     {
-      type: "Web Development", data: "Department of computer science information system", info: "The Department of Computer Science Information Systems focuses on the study of computing technologies and their application in various fields.It offers courses and research opportunities in areas such as data management, network security, software engineering, and artificial intelligence.Students gain practical skills to solve complex problems in the digital age."
+      type: "Web Development", data: "Department of computer science information system", info: "The Department of Computer Science and Information Systems studies computing technologies and their applications in a variety of fields.It provides training and research opportunities in data management, network security, software engineering, and artificial intelligence.Students develop practical abilities for solving complicated problems in the digital world."
     }
     ,
     {
-      type: "Web Development", data: "Institute of Computer Science and Information Systems", info: "The Institute of Computer Science and Information Systems offers a comprehensive range of courses and researchopportunities in computing technology.From data management to artificial intelligence, students develop practical skills toaddress complex challenges in today's digital landscape. Explore our programs and join us in shaping the future oftechnology."
+      type: "Web Development", data: "Institute of Computer Science and Information Systems", info: "The Institute of Computer Science and Information Systems provides a wide range of courses and research opportunities in computing technology.From data administration to artificial intelligence, students learn practical skills for dealing with difficult challenges in today's digital world. Explore our programmes and help shape the future of technology."
     },
     {
-      type: "Web Development", data: "Internal Assessment Tracking System", info: "The Internal Assessment Tracking System (IATS) is a web-based platform designed to streamline and automate the process of tracking internal assessments within an organization.With features for data entry, progress monitoring, and reporting, IATS enhances efficiency and accuracy, ultimately improving overall assessment management."
+      type: "Web Development", data: "Internal Assessment Tracking System", info: "The Internal Assessment tracking System (IATS) is a web-based platform that simplifies and automates the process of monitoring internal assessments within an organisation.IATS improves efficiency and accuracy through features such as data entry, progress monitoring, and reporting, ultimately improving overall assessment management."
     },
     {
-      type: "Web Development", data: "Gender Bias Identification System", info: "At GenderBiasCheck, we understand that gender bias can subtly infiltrate all forms of media, affecting perceptions and perpetuating stereotypes. Our mission is to help developers, content creators, and businesses recognize and address these biases, fostering an equitable digital environment"
+      type: "Web Development", data: "Gender Bias Identification System", info: "At GenderBiasCheck, we recognize that gender bias can reach all kinds of media, influencing views and propagating stereotypes. Our objective is to help developers, content creators, and businesses recognise and overcome these biases, enabling a more fair digital world."
     },
     {
-      type: "Android Development", data: "Student Register app", info: "A Android app to register student detail and provide login using flask as a server and android as front end language with mongodb"
+      type: "Android Development", data: "Student Register app", info: "An Android app for registering student information and providing login utilizing Flask as a server and Android as the front-end language, using MongoDB."
     }
   ]
 
   const SkillData: SkillInterface[] = [
     { label: "HTML", value: 40 },
-    { label: "Bootstrap", value: 95 },
-    { label: "C", value: 60 },
+    { label: "Bootstrap", value: 80 },
+    { label: "C", value: 70 },
     { label: "C++", value: 80 },
     { label: "Tailwindcss", value: 90 },
     { label: "JS", value: 75 },
@@ -61,9 +63,9 @@ function MainLayout() {
     { label: "PHP", value: 70 },
     { label: "Laravel", value: 40 },
     { label: "NextJS", value: 85 },
-    { label: "Python", value: 65 },
+    { label: "Python", value: 75 },
     { label: "Flask", value: 85 },
-    { label: "MongoDB", value: 55 },
+    { label: "MongoDB", value: 65 },
     { label: "Android", value: 55 },
   ]
 
@@ -77,9 +79,21 @@ function MainLayout() {
     { image: <FaReddit />, data: "reddit", link: "https://www.reddit.com/user/aj045045/" },
     { image: <FaLocationDot />, data: "Ahmedabad, Gujarat", link: "https://maps.app.goo.gl/o4g367UQLkTXHabDA" },
   ]
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 1
+      }
+    }
+  }
+
   return (
     <>
       <Hero />
+      <hr className="invisible pt-20 md:pt-10" />
       <Pill id="who am i ?" data="Who am I ? " />
       <WhoAmI />
       <Pill data="About" id="about" />
@@ -89,23 +103,24 @@ function MainLayout() {
       <Pill data="Project" id="projects" />
       <div className="space space-y-10">
         {ProjectData.map((value, index) => (
-          <>
+          <motion.div variants={container} initial="hidden" whileInView="show" key={index} >
             {index % 2 == 0 || index == 0 ?
               <ProjectLeft type={value.type} key={index} data={value.data} info={value.info} />
-              : <ProjectRight type={value.type} data={value.data} key={index} info={value.info} />
+              :
+              <ProjectRight type={value.type} data={value.data} key={index} info={value.info} />
             }
-          </>
+          </motion.div>
         ))}
       </div>
       <Pill data="Skills" id="skills" />
-      <div className="grid md:grid-cols-2 grid-cols-1 mx-20 space-y-5 items-center">
+      <motion.div initial={{ opacity: 0,y:100 }} whileInView={{ opacity: 1,y:0 }} transition={{ delay: 2, duration: 2 }} className="grid md:grid-cols-2 grid-cols-1 justify-items-center space-y-5 items-center ">
         {SkillData.map((value, index) => (
           <Skill label={value.label} key={index} value={value.value} />
         ))}
-      </div>
+      </motion.div>
       <Pill data="Education" id="education" />
       <Education />
-      <Pill data="Contact Me" id="contact" />
+      <Pill data="Contact" id="contact" />
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 md:w-1/2 mx-auto w-fit lg:w-3/4 my-10 space-y-3">
         {ContactData.map((value, index) => (
           <Contact data={value.data} key={index} image={value.image} link={value.link} />
@@ -130,12 +145,21 @@ function ServiceData() {
     { icon: <MdManageAccounts />, data: "Project Management" },
   ]
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren:1
+      }
+    }
+  }
   return (
-    <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 justify-items-center items-center ">
+    <motion.ul variants={container} initial="hidden" whileInView="show" className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 justify-items-center items-center ">
       {iconData.map((value, index) => (
         <Service icon={value.icon} data={value.data} key={index} />
       ))}
-    </div>
+    </motion.ul>
   )
 }
 

@@ -1,13 +1,17 @@
 import { Card, CardBody, Image } from "@nextui-org/react";
 import { chakra_petch } from "@/lang";
-
+import { motion } from "framer-motion";
 export function ProjectLeft({ type, data, info }: { type: string; data: string; info: string }) {
-    return (<div className="w-4/5  mx-auto h-auto">
-        <Card isHoverable isPressable >
+    const item = {
+        hidden: { opacity: 0, x: -100 },
+        show: { opacity: 1, x: 0, transition: { duration: 2, delay: 1 } }
+    }
+    return (<motion.div variants={item}>
+        <Card isHoverable isPressable className="w-4/5  mx-auto h-auto">
             <CardBody className="flex flex-row space-x-6 items-center">
                 <Image
                     alt="Album cover"
-                    className="md:w-full w-32"
+                    className="md:w-full min-w-44 object-cover"
                     height={0}
                     shadow="md"
                     src="/image/project_1.webp"
@@ -20,12 +24,16 @@ export function ProjectLeft({ type, data, info }: { type: string; data: string; 
                 </div>
             </CardBody>
         </Card>
-    </div>);
+    </motion.div>);
 }
 
 export function ProjectRight({ type, data, info }: { type: string; data: string; info: string }) {
-    return (<div className="w-4/5  mx-auto h-auto">
-        <Card isHoverable isPressable >
+    const item = {
+        hidden: { opacity: 0, x: -100 },
+        show: { opacity: 1, x: [100, 0], transition: { duration: 2, delay: 1 } }
+    }
+    return (<motion.div variants={item}>
+        <Card isHoverable isPressable className="w-4/5  mx-auto h-auto" >
             <CardBody className="flex flex-row space-x-6 items-center">
                 <div className="flex flex-col space-y-1.5 w-full items-end">
                     <div className={`${chakra_petch.className} text-md md:text-xl`}>{type}</div>
@@ -34,7 +42,7 @@ export function ProjectRight({ type, data, info }: { type: string; data: string;
                 </div>
                 <Image
                     alt="Album cover"
-                    className="md:w-full w-32 object-cover"
+                    className="md:w-full min-w-44 object-cover"
                     height={0}
                     shadow="md"
                     src="/image/project_2.webp"
@@ -42,5 +50,5 @@ export function ProjectRight({ type, data, info }: { type: string; data: string;
                 />
             </CardBody>
         </Card>
-    </div>);
+    </motion.div>);
 }
