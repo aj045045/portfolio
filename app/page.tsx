@@ -101,7 +101,7 @@ function MainLayout() {
       <Pill data="Services" id="services" />
       <ServiceData />
       <Pill data="Project" id="projects" />
-      <div className="space space-y-10">
+      <div className="space-y-10 space">
         {ProjectData.map((value, index) => (
           <motion.div variants={container} initial="hidden" whileInView="show" key={index} >
             {index % 2 == 0 || index == 0 ?
@@ -113,7 +113,7 @@ function MainLayout() {
         ))}
       </div>
       <Pill data="Skills" id="skills" />
-      <motion.div initial={{ opacity: 0,y:100 }} whileInView={{ opacity: 1,y:0 }} transition={{ delay: 2, duration: 2 }} className="grid md:grid-cols-2 grid-cols-1 justify-items-center space-y-5 items-center ">
+      <motion.div initial={{ opacity: 0,y:100 }} whileInView={{ opacity: 1,y:0 }} transition={{ delay: 2, duration: 2 }} className="grid items-center grid-cols-1 space-y-5 md:grid-cols-2 justify-items-center ">
         {SkillData.map((value, index) => (
           <Skill label={value.label} key={index} value={value.value} />
         ))}
@@ -121,7 +121,7 @@ function MainLayout() {
       <Pill data="Education" id="education" />
       <Education />
       <Pill data="Contact" id="contact" />
-      <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 md:w-1/2 mx-auto w-fit lg:w-3/4 my-10 space-y-3">
+      <div className="grid grid-cols-1 mx-auto my-10 space-y-3 lg:grid-cols-3 md:grid-cols-2 md:w-1/2 w-fit lg:w-3/4">
         {ContactData.map((value, index) => (
           <Contact data={value.data} key={index} image={value.image} link={value.link} />
         ))}
@@ -155,7 +155,7 @@ function ServiceData() {
     }
   }
   return (
-    <motion.ul variants={container} initial="hidden" whileInView="show" className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-1 justify-items-center items-center ">
+    <motion.ul variants={container} initial="hidden" whileInView="show" className="grid items-center grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-items-center ">
       {iconData.map((value, index) => (
         <Service icon={value.icon} data={value.data} key={index} />
       ))}

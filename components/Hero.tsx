@@ -17,23 +17,23 @@ export function Hero() {
         document.body.removeChild(link);
     };
     return (<>
-        <div className="flex flex-col md:flex-row h-96 select-none mb-96 md:mb-24 pt-20" id="home">
-            <motion.div className="text-justify self-center items-center md:w-3/5 w-4/5 md:px-10  md:mt-10 mt-5" initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 3, delay: 1 }}>
-                <div className="text-4xl  font-semibold  text-shadow-md ">
-                    Hello, I am <span className="dark:text-green-400 text-green-600">Ansh Yadav</span>,&nbsp;a <Typing />
+        <div className="flex flex-col pt-20 select-none md:flex-row h-96 mb-96 md:mb-24" id="home">
+            <motion.div className="items-center self-center w-4/5 mt-5 text-justify md:w-3/5 md:px-10 md:mt-10" initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 3, delay: 1 }}>
+                <div className="text-4xl font-semibold text-shadow-md cursor-text">
+                    Hello, I am <span className="text-green-600 dark:text-green-400">Ansh Yadav</span>,&nbsp;a <Typing />
                 </div>
-                <div className="text-lg mt-5 dark:text-slate-400 text-slate-600">&#34;I am an Ahmedabad-based developer who focuses on creating clean, user-friendly applications. I am passionate about developing software that enhances the lives of people.&#34;</div>
+                <div className="mt-5 text-lg dark:text-slate-400 text-slate-600">&#34;I am an Ahmedabad-based developer who focuses on creating clean, user-friendly applications. I am passionate about developing software that enhances the lives of people.&#34;</div>
                 <Button color="success" radius="full" endContent={<FaDownload />} className="mt-5" onClick={handleDownload} >Download CV</Button>
-                <div className="flex flex-row items-center space-x-4 mt-10 text-xl">
+                <div className="flex flex-row items-center mt-10 space-x-4 text-xl cursor-pointer">
                     <div>Check Out my</div>
-                    <Link href={"https://www.linkedin.com/in/ansh-yadav-0ab92424b/"} target="_blank"><FaLinkedin className="dark:text-green-500 text-green-700 text-4xl" /></Link>
-                    <Link href={"https://www.freelancer.com/u/aj045045"} target="_blank"><SiFreelancer className="dark:text-green-500 text-green-700 text-4xl" /></Link>
-                    <Link href={"https://github.com/aj045045"} target="_blank"><FaGithub className="dark:text-green-500 text-green-700 text-4xl" /></Link>
+                    <Link href={"https://www.linkedin.com/in/ansh-yadav-0ab92424b/"} target="_blank"><FaLinkedin className="text-4xl text-green-700 dark:text-green-500" /></Link>
+                    <Link href={"https://www.freelancer.com/u/aj045045"} target="_blank"><SiFreelancer className="text-4xl text-green-700 dark:text-green-500" /></Link>
+                    <Link href={"https://github.com/aj045045"} target="_blank"><FaGithub className="text-4xl text-green-700 dark:text-green-500" /></Link>
                 </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 5, delay: 4 }} className="md:ml-20  select-none" >
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 5, delay: 4 }} className="select-none md:ml-20" >
                 <Image unoptimized src={'/image/blob.png'} alt="Blob Background" width={0} height={0} className="w-[430px] absolute" />
-                <Image unoptimized src={'/image/user.png'} alt="User Image" width={0} height={0} className="w-60 mt-10 ml-16 md:ml-10 z-10 md:w-80 absolute" />
+                <Image unoptimized src={'/image/user.png'} alt="User Image" width={0} height={0} className="absolute z-10 mt-10 ml-16 w-60 md:ml-10 md:w-80" />
             </motion.div>
         </div>
     </>)
