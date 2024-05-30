@@ -25,7 +25,7 @@ export function About() {
         { key: "Nationality", value: "Indian" },
     ];
     return (
-        <motion.div initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: 2, duration: 2 }} className="p-10 mx-auto rounded-lg dark:bg-green-200/20 bg-green-300/20 w-fit">
+        <motion.div initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: 1, duration: 2 }} className="p-10 mx-auto rounded-lg dark:bg-green-200/20 bg-green-300/20 w-fit">
             <Tooltip content="Try to drag table" color="success">
                 <motion.div className="mx-auto cursor-move w-fit" drag dragConstraints={{ top: -50, left: -50, right: 50, bottom: 50 }}>
                     <Table>

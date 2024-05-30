@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export function Service({ icon, data }: { icon: React.ReactElement; data: string; }) {
     const item = {
         hidden: { opacity: 0 },
-        show: { opacity: 1, transition: { duration: 2 } }
+        show: { opacity: 1, transition: { duration: 1 } }
     }
 
     return (
