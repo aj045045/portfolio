@@ -53,20 +53,24 @@ function MainLayout() {
   ]
 
   const SkillData: SkillInterface[] = [
-    { label: "HTML", value: 40 },
-    { label: "Bootstrap", value: 80 },
+    { label: "HTML", value: 60 },
+    { label: "Bootstrap", value: 100 },
     { label: "C", value: 70 },
     { label: "C++", value: 80 },
-    { label: "Tailwindcss", value: 90 },
+    { label: "Tailwindcss", value: 95 },
     { label: "JS", value: 75 },
     { label: "Jquery", value: 30 },
-    { label: "PHP", value: 70 },
-    { label: "Laravel", value: 40 },
-    { label: "NextJS", value: 85 },
-    { label: "Python", value: 75 },
-    { label: "Flask", value: 85 },
-    { label: "MongoDB", value: 65 },
-    { label: "Android", value: 55 },
+    { label: "PHP", value: 95 },
+    { label: "Laravel", value: 60 },
+    { label: "NextJS", value: 95 },
+    { label: "Python", value: 95 },
+    { label: "Flask", value: 95 },
+    { label: "SQL", value: 85 },
+    { label: "MongoDB", value: 75 },
+    { label: "Java", value: 95},
+    { label: "JSP", value: 95 },
+    { label: "Spring boot", value: 60 },
+    { label: "Android", value: 75 },
   ]
 
   const ContactData: ContactInterface[] = [
@@ -113,7 +117,7 @@ function MainLayout() {
         ))}
       </div>
       <Pill data="Skills" id="skills" />
-      <motion.div initial={{ opacity: 0,y:100 }} whileInView={{ opacity: 1,y:0 }} transition={{ delay: 2, duration: 2 }} className="grid items-center grid-cols-1 space-y-5 md:grid-cols-2 justify-items-center ">
+      <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 2, duration: 2 }} className="grid items-center grid-cols-1 space-y-5 md:grid-cols-2 justify-items-center ">
         {SkillData.map((value, index) => (
           <Skill label={value.label} key={index} value={value.value} />
         ))}
@@ -150,7 +154,7 @@ function ServiceData() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren:1
+        staggerChildren: 1
       }
     }
   }
