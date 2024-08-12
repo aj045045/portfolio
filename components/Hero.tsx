@@ -11,7 +11,7 @@ export function Hero() {
     const handleDownload = () => {
         const link = document.createElement('a');
         link.href = '/resume/resume.pdf';
-        link.download = 'ansh-yadav-cv.pdf';
+        link.download = 'ansh-yadav-resume.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

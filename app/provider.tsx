@@ -16,7 +16,7 @@ export default function RootLayout({
     damping: 30,
     restDelta: 0.001
   });
-  const [isDarkMode, setDarkMode] = useState(true);
+  const [isDarkMode, setDarkMode] = useState(false);
   return (
     <html lang="en" className={isDarkMode ? "dark" : "light"}>
       <body className={inter.className}>
